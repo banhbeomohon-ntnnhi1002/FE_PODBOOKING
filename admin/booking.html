@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POD Booking - Đặt chỗ làm việc</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2 class="sidebar-title">Khu Vực Dành Cho Người Quản Trị</h2>
+        <ul class="sidebar-menu">
+            <li class="active">📅 Đặt chỗ làm việc</li>
+            <li>🛠️Báo cáo & Doanh thu</li>
+            <li id="logout">Đăng xuất</li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <h2 class="page-title">Đặt chỗ làm việc</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm email hoặc mã đặt chỗ...">
+        </div>
+
+        <div class="table-container">
+            <div class="table-wrapper">
+                <table id="bookingTable">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Email</th>
+                            <th>Mã đặt chỗ</th>
+                            <th>Ngày</th>
+                            <th>Ảnh</th>
+                            <th>Giờ bắt đầu</th>
+                            <th>Thời gian</th>
+                            <th>Giá gói</th>
+                            <th>Trạng thái</th>
+                            <th>Trạng thái hoạt động</th>
+                            <th>Công cụ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+<div id="reportSection" style="display:none;">
+    <h2 class="page-title">Báo cáo Doanh thu</h2>
+    <div class="table-container">
+        <p><strong>Tổng số đặt chỗ:</strong> <span id="totalBookings">0</span></p>
+        <p><strong>Tổng số đơn đã thanh toán:</strong> <span id="paidBookings">0</span></p>
+        <p><strong>Tổng doanh thu:</strong> <span id="totalRevenue">0 VNĐ</span></p>
+    </div>
+</div>
+
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle" class="modal-title">Chỉnh sửa thông tin đặt chỗ</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="editEmail" class="form-label">Email</label>
+                        <input type="email" id="editEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editBookingCode" class="form-label">Mã đặt chỗ</label>
+                        <input type="text" id="editBookingCode" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDate" class="form-label">Ngày</label>
+                        <input type="date" id="editDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editStartTime" class="form-label">Giờ bắt đầu</label>
+                        <input type="time" id="editStartTime" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDuration" class="form-label">Thời gian (giờ)</label>
+                        <input type="number" id="editDuration" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPrice" class="form-label">Giá gói (VNĐ)</label>
+                        <input type="number" id="editPrice" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editStatus" class="form-label">Trạng thái thanh toán</label>
+                        <select id="editStatus" class="form-control">
+                            <option value="paid">Đã thanh toán</option>
+                            <option value="pending">Chưa thanh toán</option>
+                            <option value="vip-paid">VIP - Đã thanh toán</option>
+                            <option value="cancel">Đã hủy</option>
+                        </select>
+                    </div>
+                         <div class="form-group">
+                        <label for="editStatusActive" class="form-label">Trạng thái hoạt động</label>
+                        <select id="editStatusActive" class="form-control">
+                            <option value="active">Hoạt động</option>
+                            <option value="inactive">Không hoạt động</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="closeEditModal()" class="btn btn-secondary">Đóng</button>
+                    <button id="saveButton" class="btn btn-primary">Lưu thay đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="booking.js"></script>
+</body>
+</html>
