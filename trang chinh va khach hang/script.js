@@ -8,7 +8,7 @@ window.onload = function() {
   }
 };
 
-// Danh sách thông báo mẫu (sẽ thay bằng API sau)
+// đây chỉ là mẫu thoi nhé hãy đưa a-api vào đây nhé ae!!!!!
 let mockNotifications = [
   { message: "Đặt chỗ ngày 2025-09-05 đã được xác nhận!", id: 1 },
   { message: "Gói dịch vụ của bạn sắp hết hạn!", id: 2 }
@@ -228,7 +228,7 @@ const notification = document.getElementById('notification');
 
 const mockAvailability = {};
 
-let mockSchedule = [];
+let mockSchedule = [];//đây cũng là dữ liệu mẫu thoi nhé hãy đưa API vào chỗ này nhé ae
 
 let mockPackages = [
   { type: 'hour', duration: 5, price: 150000 },
@@ -788,4 +788,5 @@ customizeForm.addEventListener('submit', (e) => {
     customizeModal.classList.remove('active');
     customizeForm.reset();
   }
+
 });
