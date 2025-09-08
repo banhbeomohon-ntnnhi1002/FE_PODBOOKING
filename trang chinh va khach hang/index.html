@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POD Booking System</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="#" class="logo-pod">POD</a>
+        <span id="userInfo"></span>
+        <nav>
+          <a href="#features">Tính năng</a>
+          <a href="#pricing">Gói dịch vụ</a>
+          <a href="#about">Về chúng tôi</a>
+          <a href="#contact">Liên hệ</a>
+        </nav>
+        <div class="auth-buttons">
+          <a href="#" class="login">Đăng nhập</a>
+          <a href="#" class="signup">Đăng ký</a>
+        </div>
+        <div class="notification-bell hidden">
+          <a href="#" id="notification-bell"><i class="fas fa-bell"></i></a>
+          <span id="notification-count" class="hidden">0</span>
+        </div>
+        <a href="#" id="logoutLink" class="hidden">Đăng xuất</a>
+        <button class="mobile-menu-button" id="mobile-menu-button">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="#features">Tính năng</a>
+        <a href="#pricing">Gói dịch vụ</a>
+        <a href="#about">Về chúng tôi</a>
+        <a href="#contact">Liên hệ</a>
+        <a href="#" class="login">Đăng nhập</a>
+        <a href="#" class="signup">Đăng ký</a>
+        <a href="#" id="mobileLogoutLink" class="hidden">Đăng xuất</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1>Quản lý và đặt chỗ làm việc cá nhân dễ dàng</h1>
+        <p>POD Booking System là giải pháp tối ưu giúp bạn tìm kiếm, đặt chỗ và quản lý không gian làm việc cá nhân trong các văn phòng hiện đại với giao diện thân thiện và thanh toán trực tuyến tiện lợi.</p>
+        <div class="hero-buttons">
+          <a href="#" class="book-now">Đặt chỗ ngay</a>
+          <a href="#" class="learn-more">Tìm hiểu thêm</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="z6977181150510_ca173216793dab4321e88b821c0e573a556.jpg" alt="không gian làm việc" height="700px" width="900px" title="không gian làm việc nhé!!!">
+      </div>
+    </div>
+  </section>
+
+  <section id="dashboard" class="dashboard hidden">
+    <button class="sidebar-toggle" id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+    <div class="container">
+      <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#" class="book-pod"><i class="fas fa-calendar-alt"></i> Đặt chỗ ngay</a>
+        <a href="#" class="manage-schedule"><i class="fas fa-clock"></i> Quản lý lịch</a>
+        <a href="#" class="manage-package"><i class="fas fa-box"></i> Gói dịch vụ</a>
+        <a href="#" class="payment"><i class="fas fa-credit-card"></i> Thanh toán</a>
+        <a href="#" class="customize-interface"><i class="fas fa-paint-brush"></i> Tùy chỉnh giao diện</a>
+      </div>
+      <div class="dashboard-content">
+        <div class="welcome-card">
+          <h1>Chào mừng, <span id="dashboardUserName"></span>!</h1>
+          <p>Đây là không gian quản lý cá nhân của bạn.</p>
+        </div>
+        <div class="overview-card">
+          <h3>Tổng quan</h3>
+          <p>Lịch sử đặt chỗ gần đây:</p>
+          <ul id="recent-bookings"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <h2>Tính năng nổi bật</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <i class="fas fa-calendar-alt"></i>
+        <h3>Đặt chỗ POD</h3>
+        <p>Xem lịch trống và đặt chỗ làm việc theo giờ, ngày, tuần dễ dàng.</p>
+        <a href="#" class="feature-action book-pod">Thử ngay</a>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-clock"></i>
+        <h3>Quản lý lịch</h3>
+        <p>Theo dõi và chỉnh sửa lịch làm việc của bạn một cách tiện lợi.</p>
+        <a href="#" class="feature-action manage-schedule">Thử ngay</a>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-box"></i>
+        <h3>Gói dịch vụ</h3>
+        <p>Chọn các gói dịch vụ linh hoạt theo nhu cầu cá nhân.</p>
+        <a href="#" class="feature-action manage-package">Thử ngay</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <h2>Gói dịch vụ của chúng tôi</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Gói Giờ</h3>
+        <p>30.000₫ / giờ</p>
+        <ul>
+          <li><i class="fas fa-check"></i> Đặt chỗ theo giờ linh hoạt</li>
+          <li><i class="fas fa-check"></i> Thanh toán trực tuyến nhanh chóng</li>
+          <li><i class="fas fa-check"></i> Hỗ trợ dịch vụ đi kèm</li>
+        </ul>
+        <a href="#" class="manage-package">Mua ngay</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Gói ngày</h3>
+        <p>200.000₫ / ngày</p>
+        <ul>
+          <li><i class="fas fa-check"></i> Sử dụng cả ngày</li>
+          <li><i class="fas fa-check"></i> Thanh toán trực tuyến nhanh chóng</li>
+          <li><i class="fas fa-check"></i> Hỗ trợ dịch vụ đi kèm</li>
+        </ul>
+        <a href="#" class="manage-package">Mua ngay</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>Về chúng tôi</h2>
+    <div class="about-content">
+      <p>POD Booking System là hệ thống quản lý và đặt chỗ làm việc cá nhân hiện đại, được thiết kế để giúp người dùng dễ dàng tìm kiếm và đặt chỗ theo nhu cầu. Với giao diện thân thiện và khả năng thanh toán trực tuyến, chúng tôi mang đến trải nghiệm tiện lợi và nhanh chóng.</p>
+      <p>Hệ thống cung cấp các báo cáo chi tiết về sử dụng và doanh thu, hỗ trợ quản lý hiệu quả không gian làm việc. Đặc biệt, chúng tôi ưu tiên phục vụ khách hàng VIP với các tính năng quản lý ưu tiên và danh sách chờ.</p>
+      <p>Với POD Booking System, việc quản lý không gian làm việc cá nhân trong các văn phòng hiện đại trở nên dễ dàng và hiệu quả hơn bao giờ hết.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Liên hệ với chúng tôi</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Họ và tên" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Tin nhắn" rows="5" required></textarea>
+      <button type="submit">Gửi</button>
+    </form>
+  </section>
+
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-login-modal">&times;</span>
+      <h2>Đăng nhập</h2>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="Email" required>
+        <div class="error" id="login-email-error"></div>
+        <input type="password" id="login-password" placeholder="Mật khẩu" required>
+        <div class="error" id="login-password-error"></div>
+        <button type="submit">Đăng nhập</button>
+        <p>Chưa có tài khoản? <a href="#" class="switch-to-signup">Đăng ký ngay</a></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="signup-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-signup-modal">&times;</span>
+      <h2>Đăng ký</h2>
+      <form id="signup-form">
+        <input type="text" id="signup-name" placeholder="Họ và tên" required>
+        <div class="error" id="signup-name-error"></div>
+        <input type="email" id="signup-email" placeholder="Email" required>
+        <div class="error" id="signup-email-error"></div>
+        <input type="password" id="signup-password" placeholder="Mật khẩu" required>
+        <div class="error" id="signup-password-error"></div>
+        <input type="password" id="signup-confirm-password" placeholder="Xác nhận mật khẩu" required>
+        <div class="error" id="signup-confirm-password-error"></div>
+        <button type="submit">Đăng ký</button>
+        <p>Đã có tài khoản? <a href="#" class="switch-to-login">Đăng nhập</a></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="booking-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-booking-modal">&times;</span>
+      <h2>Đặt chỗ POD</h2>
+      <form id="booking-form">
+        <input type="date" id="booking-date" required>
+        <div class="error" id="booking-date-error"></div>
+        <div id="booking-available-slots" style="display: none;">
+          <p>Khung giờ trống (nhấp để chọn):</p>
+          <ul id="booking-available-slots-list"></ul>
+        </div>
+        <input type="text" id="booking-time" placeholder="Giờ bắt đầu" readonly required>
+        <div class="error" id="booking-time-error"></div>
+        <select id="booking-duration" required>
+          <option value="">Chọn thời lượng</option>
+          <option value="1">1 giờ</option>
+          <option value="2">2 giờ</option>
+          <option value="3">3 giờ</option>
+          <option value="4">4 giờ</option>
+          <option value="5">5 giờ</option>
+          <option value="6">6 giờ</option>
+          <option value="7">7 giờ</option>
+          <option value="8">8 giờ</option>
+          <option value="9">9 giờ</option>
+          <option value="10">10 giờ</option>
+        </select>
+        <div class="error" id="booking-duration-error"></div>
+        <select id="booking-pod-type" required>
+          <option value="">Chọn loại POD</option>
+          <option value="standard">Standard</option>
+          <option value="premium">Premium</option>
+          <option value="vip">VIP</option>
+        </select>
+        <div class="error" id="booking-pod-type-error"></div>
+        <div id="booking-price-estimate" style="display: none;">
+          <p>Ước tính giá: <span id="booking-estimated-price"></span></p>
+        </div>
+        <button type="submit">Đặt chỗ</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="schedule-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-schedule-modal">&times;</span>
+      <h2>Quản lý lịch làm việc</h2>
+      <form id="schedule-form">
+        <input type="date" id="schedule-date" required>
+        <div class="error" id="schedule-date-error"></div>
+        <input type="time" id="schedule-time" required>
+        <div class="error" id="schedule-time-error"></div>
+        <input type="text" id="schedule-task" placeholder="Nhiệm vụ" required>
+        <div class="error" id="schedule-task-error"></div>
+        <button type="submit">Thêm lịch</button>
+      </form>
+      <div id="schedule-list" style="display: none;">
+        <p>Lịch làm việc</p>
+        <ul id="schedule-list-items"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="package-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-package-modal">&times;</span>
+      <h2>Quản lý gói dịch vụ</h2>
+      <form id="package-form">
+        <select id="package-type" required>
+          <option value="">Chọn loại gói</option>
+          <option value="hour">Gói giờ</option>
+          <option value="day">Gói ngày</option>
+        </select>
+        <div class="error" id="package-type-error"></div>
+        <input type="number" id="package-duration" placeholder="Thời lượng" required>
+        <div class="error" id="package-duration-error"></div>
+        <button type="submit">Thêm gói</button>
+      </form>
+      <div id="package-list" style="display: none;">
+        <p>Danh sách gói</p>
+        <ul id="package-list-items"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="payment-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-payment-modal">&times;</span>
+      <h2>Thanh toán</h2>
+      <form id="payment-form">
+        <select id="payment-item" required>
+          <option value="">Chọn mục để thanh toán</option>
+        </select>
+        <div class="error" id="payment-item-error"></div>
+        <input type="number" id="payment-amount" placeholder="Số tiền" readonly required>
+        <div class="error" id="payment-amount-error"></div>
+        <select id="payment-method" required>
+          <option value="">Chọn phương thức thanh toán</option>
+          <option value="credit-card">Thẻ tín dụng</option>
+          <option value="bank-transfer">Chuyển khoản ngân hàng</option>
+          <option value="momo">MoMo</option>
+        </select>
+        <div class="error" id="payment-method-error"></div>
+        <button type="submit">Thanh toán</button>
+      </form>
+      <div id="payment-list" style="display: none;">
+        <h3>Lịch sử thanh toán</h3>
+        <ul id="payment-list-items"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="customize-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-customize-modal">&times;</span>
+      <h2>Tùy chỉnh giao diện</h2>
+      <form id="customize-form">
+        <select id="customize-color" required>
+          <option value="">Chọn màu</option>
+          <option value="#f472b6">Hồng (Mặc định)</option>
+          <option value="#3b82f6">Xanh dương</option>
+          <option value="#8b5cf6">Tím</option>
+        </select>
+        <div class="error" id="customize-color-error"></div>
+        <select id="customize-font" required>
+          <option value="">Chọn font</option>
+          <option value="Inter">Inter (Mặc định)</option>
+          <option value="Arial">Arial</option>
+          <option value="Times New Roman">Times New Roman</option>
+        </select>
+        <div class="error" id="customize-font-error"></div>
+        <button type="submit">Áp dụng</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="notification-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-notification-modal">&times;</span>
+      <h2>Thông báo</h2>
+      <div id="notification-list">
+        <ul id="notification-list-items"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification"></div>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2025 POD Booking System. Được làm bởi double nhi, long nhật, gia huy, hồng phát, huỳnh phát, lê quốc.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/nhinhi1g/?locale=vi_VN"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.facebook.com/nguyen.tran.ngoc.nhi.681924?locale=vi_VN"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.facebook.com/long.nhat.558174?locale=vi_VN"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
